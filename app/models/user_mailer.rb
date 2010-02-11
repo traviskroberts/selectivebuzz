@@ -3,21 +3,21 @@ class UserMailer < ActionMailer::Base
     setup_email(user)
     @subject    += 'Please activate your new account'
   
-    @body[:url]  = "http://buzzbin.travisroberts.net/activate/#{user.activation_code}"
+    @body[:url]  = "http://selectivebuzz.travisroberts.net/activate/#{user.activation_code}"
   
   end
   
   def activation(user)
     setup_email(user)
     @subject    += 'Your account has been activated!'
-    @body[:url]  = "http://buzzbin.travisroberts.net/"
+    @body[:url]  = "http://selectivebuzz.travisroberts.net/"
   end
   
   protected
     def setup_email(user)
       @recipients  = "#{user.email}"
       @from        = "traviskroberts@gmail.com"
-      @subject     = "[buzzbin] "
+      @subject     = "[SelectiveBuzz] "
       @sent_on     = Time.now
       @body[:user] = user
     end
