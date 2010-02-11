@@ -3,13 +3,13 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
-  <title><%= @page_title ||= "BuzzBin" %></title>
+  <title><%= @page_title ||= "SelectiveBuzz" %></title>
   
   <%= stylesheet_link_tag 'default' %>
   <%= javascript_include_tag :defaults %>
   
-  <link rel="icon" type="image/png" href="/images/favicon.png" />
-  <link rel="shortcut icon" href="/images/favicon.png" />
+  <!-- <link rel="icon" type="image/png" href="/images/favicon.png" /> -->
+  <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
 </head>
 
 <body>
@@ -20,9 +20,9 @@
     
     <div id="footer">
       <p>
-        &copy;<%= Date.today.year %> BuzzBin.
+        &copy;<%= Date.today.year %> SelectiveBuzz.
         Site created by
-        <%= link_to 'Travis Roberts', 'http://travisonrails.com', :popup => true %>.
+        <%= link_to 'Travis Roberts', 'http://travisroberts.net', :popup => true %>.
       </p>
     </div><!-- footer -->
   </div><!-- wrapper -->
