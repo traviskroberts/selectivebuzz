@@ -12,8 +12,8 @@ task(:parse_buzz_feed => :environment) do
     
     next if !twitter and !facebook
     
-    buzz_feed = RSS::Parser.parse(open("http://buzz.googleapis.com/feeds/#{user.google_username}/public/posted").read, false)
-    
+    buzz_feed = RSS::Parser.parse(open("http://buzz.googleapis.com/feeds/crappola/public/posted").read, false) rescue next
+
     buzz_feed.entries.each do |entry|
       updated = Time.parse(entry.updated.to_s)
       if updated > last_run
@@ -21,7 +21,7 @@ task(:parse_buzz_feed => :environment) do
         if twitter and message.include?('#tweet')
           # remove the content tags and take out the #tweet hashtag
           tweet = message.gsub(/\<[a-z1-9 =\"]+\>/, '').gsub(/\<\/[a-z]+\>/, '').gsub(/&lt;[\/a-z]+&gt;/, '').gsub(/#tweet/, '')
-          
+
           # tweet it up, focker
           user.client.update(tweet, {})
         end
