@@ -1,0 +1,15 @@
+<h1>Your Account</h1>
+
+<p>
+  <strong>Name:</strong> <%= @user.name %><br />
+  <strong>Email:</strong> <%= @user.email %><br />
+  <strong>Google Username</strong>: <%= @user.google_username %>
+</p>
+
+<%- if @user.twitter_enabled -%>
+  <p>
+    <strong>Twitter Account:</strong> <%= @user.twitter_name %>
+  </p>
+<%- else -%>
+  <p><%= link_to image_tag('twitter.png', :alt => 'Link to your twitter account.'), twitter_path %></p>
+<%- end -%>

@@ -1,0 +1,10 @@
+<h1>Buzzbin</h1>
+
+<ul>
+  <%- if logged_in? -%>
+    <li><%= link_to_current_user(:content_text => 'Your Account') %></li>
+    <li><%= link_to 'Logout', logout_path %></li>
+  <%- else -%>
+    <li><%= link_to 'Signup', signup_path %></li>
+  <%- end -%>
+</ul>
