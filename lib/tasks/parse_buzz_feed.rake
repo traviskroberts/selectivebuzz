@@ -30,6 +30,9 @@ task(:parse_buzz_feed => :environment) do
           puts "POSTING TO TWITTER"
           # remove the html tags and take out the #tweet hashtag (AND the #fb if it has it)
           tweet = message.gsub(/<\/?[a-z]+>/, '').gsub(/#tweet/, '').gsub(/#fb/, '').strip
+          
+          # let's make sure the tweet is ONLY 140 characters long
+          tweet = tweet[0..139]
 
           # tweet it up, focker
           user.client.update(tweet, {})
