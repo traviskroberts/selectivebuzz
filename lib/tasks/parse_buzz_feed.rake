@@ -21,13 +21,13 @@ task(:parse_buzz_feed => :environment) do
     buzz_feed = Buzzr::Feed.retrieve(feed_url)
     
     buzz_feed.entries.each do |entry|
-      next
       updated = Time.parse(entry.updated.to_s)
       if updated > last_run
         message = entry.content.to_s
         
         # post to Twitter?
         if twitter and message.include?('#tweet')
+          puts "POSTING TO TWITTER"
           # remove the html tags and take out the #tweet hashtag (AND the #fb if it has it)
           tweet = message.gsub(/<\/?[a-z]+>/, '').gsub(/#tweet/, '').gsub(/#fb/, '').strip
 
@@ -37,6 +37,7 @@ task(:parse_buzz_feed => :environment) do
         
         # post to Facebook?
         if facebook and message.include?('#fb')
+          puts "POSTING TO FACEBOOK"
           # remove the html tags and take out the #fb hashtag (AND the #tweet if it has it)
           facebook_status = message.gsub(/<\/?[a-z]+>/, '').gsub(/#fb/, '').gsub(/#tweet/, '').strip
           
