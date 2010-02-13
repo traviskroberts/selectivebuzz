@@ -11,5 +11,11 @@
     <strong>Twitter Account:</strong> <%= @user.twitter_name %>
   </p>
 <%- else -%>
-  <p><%= link_to image_tag('twitter.png', :alt => 'Link to your twitter account.'), twitter_path %></p>
+  <p><%= link_to image_tag('twitter_connect.png', :alt => 'Link to your twitter account.'), twitter_path %></p>
+<%- end -%>
+
+<%- if @user.facebook_enabled -%>
+  <p><strong>Facebook Connect:</strong> enabled</p>
+<%- else -%>
+  <p><%= link_to image_tag('facebook_connect.gif', :alt => 'Link to your facebook account.'), facebook_connect_path %></p>
 <%- end -%>

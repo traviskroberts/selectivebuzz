@@ -6,10 +6,16 @@ ActionController::Routing::Routes.draw do |map|
   map.register '/register', :controller => 'users', :action => 'create'
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
+  map.my_account 'my-account', :controller => 'users', :action => 'my_account'
   
   map.with_options :controller => 'twitter' do |m|
     m.twitter 'twitter/create', :action => 'create'
     m.twitter_approve 'twitter/approve', :action => 'approve'
+  end
+  
+  map.with_options :controller => 'facebook' do |m|
+    m.facebook_connect 'facebook/connect', :action => 'create'
+    m.facebook_approve 'facebook/approve', :action => 'approve'
   end
   
   map.resources :users

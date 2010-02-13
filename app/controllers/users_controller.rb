@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   
-  before_filter :login_required, :only => [:show]
+  before_filter :login_required, :only => [:show, :my_account]
 
   # render new.rhtml
   def new
@@ -21,7 +21,12 @@ class UsersController < ApplicationController
   end
   
   def show
+    redirect_to my_account_path
+  end
+  
+  def my_account
     @user = current_user
+    render :action => 'show'
   end
 
   def activate
