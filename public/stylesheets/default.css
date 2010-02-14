@@ -1,0 +1,44 @@
+html, body { height:100%; }
+
+label { font-size:14px; padding:0 0 0 5px; }
+
+#wrapper {
+  min-height:100%;
+  height:auto !important;
+  height:100%;
+  margin:0 auto -50px;
+}
+
+#header { padding:15px 0; }
+
+.nav { list-style-type:none; }
+.nav li {
+  display:inline;
+  margin:0 15px 0 0;
+  padding:0;
+}
+
+#footer, .push { height:50px; }
+
+#form-box {
+  background-color:#EFEFEF;
+  border:3px solid #999;
+  padding:15px 25px 0 25px;
+  -webkit-border-radius:6px;
+  -moz-border-radius:8px;
+  border-radius:6px;
+}
+
+.checkbox_p label { line-height:24px; }
+
+.clear { clear:both; }
+
+/************ styles for notice/error divs ************/
+#notice { background-color:#A4E7A0; border:1px solid #26722D; }
+#error { background-color:#F0A8A8; border:1px solid #900; }
+#notice, #error { margin:0 auto 10px auto; padding:5px; }
+#notice p, #error p { margin:0 0 0 20px; padding:0; font-size:14px; color:#000; }
+#notice a, #error a { text-decoration:none; padding:0 3px; }
+#notice a { border:1px solid #26722D; color:#26722D; }
+#error a { border:1px solid #900; color:#900; }
+#notice a:hover, #error a:hover { color:#333; border:1px solid #333; }

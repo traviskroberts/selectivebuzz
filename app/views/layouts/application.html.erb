@@ -5,26 +5,44 @@
 
   <title><%= @page_title ||= "SelectiveBuzz" %></title>
   
-  <%= stylesheet_link_tag 'default' %>
-  <%= javascript_include_tag :defaults, 'facebooker' %>
+  <%= stylesheet_link_tag 'reset', 'text', '960', 'default', 'uniform.aristo' %>
+  <%= javascript_include_tag 'jquery-1.3.2.min', 'jquery.uniform', 'jquery.qtip.min', 'application' %>
   
   <!-- <link rel="icon" type="image/png" href="/images/favicon.png" /> -->
   <!-- <link rel="shortcut icon" href="/images/favicon.png" /> -->
 </head>
 
 <body>
-  <div id="wrapper">
+  <div id="wrapper" class="container_12">
+    <div id="header" class="grid_12 alpha omega">
+      <div class="grid_6 alpha">
+        <%= link_to 'SelectiveBuzz', root_path %>
+      </div><!-- grid_6 -->
+      <div class="grid_6 omega">
+        <ul class="nav">
+          <%- if logged_in? -%>
+            <li><%= link_to 'My Account', my_account_path %></li>
+            <li><%= link_to 'Logout', logout_path %></li>
+          <%- else -%>
+            <li><%= link_to 'Login', login_path %></li>
+            <li><%= link_to 'Signup', signup_path %></li>
+          <%- end -%>
+        </ul>
+      </div><!-- grid_6 -->
+    </div><!-- header -->
     <%= render :partial => 'shared/notice_div' %>
     
     <%= yield %>
     
-    <div id="footer">
-      <p>
-        &copy;<%= Date.today.year %> SelectiveBuzz.
-        Site created by
-        <%= link_to 'Travis Roberts', 'http://travisroberts.net', :popup => true %>.
-      </p>
-    </div><!-- footer -->
+    <div class="push"></div>
   </div><!-- wrapper -->
+  
+  <div id="footer" class="container_12">
+    <p>
+      &copy;<%= Date.today.year %> SelectiveBuzz.
+      Site created by
+      <%= link_to 'Travis Roberts', 'http://travisroberts.net', :popup => true %>.
+    </p>
+  </div><!-- footer -->
 </body>
 </html>
