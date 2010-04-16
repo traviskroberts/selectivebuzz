@@ -1,6 +1,6 @@
 desc "Parses user buzz feeds and posts to twitter and facebook."
 task(:parse_buzz_feed => :environment) do
-  start = Time.now
+  start = Time.now.getutc
   
   users = User.all
   last_run = start - (5*60)
@@ -21,7 +21,7 @@ task(:parse_buzz_feed => :environment) do
     buzz_feed = Buzzr::Feed.retrieve(feed_url)
     
     buzz_feed.entries.each do |entry|
-      updated = Time.parse(entry.updated.to_s)
+      updated = Time.parse(entry.published.to_s).getutc
       if updated > last_run
         message = entry.content.to_s
         
