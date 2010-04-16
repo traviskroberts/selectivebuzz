@@ -214,7 +214,7 @@ label { font-size:14px; padding:0 0 0 5px; }
   -moz-border-radius:8px;
   -webkit-border-radius:8px;
 }
-.media-box .service-badge { float:left; margin:0 25px 0 0; }
+.media-box .service-badge { float:left; margin:0 25px 0 0; width:58px; }
 .media-box p { float:left; margin:0 20px 0 0; width:400px; }
 .media-box .account-btn { float:left; margin:9px 0 0 0; }
 
