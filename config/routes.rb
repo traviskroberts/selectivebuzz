@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.signup '/signup', :controller => 'users', :action => 'new'
   map.activate '/activate/:activation_code', :controller => 'users', :action => 'activate', :activation_code => nil
   map.my_account 'my-account', :controller => 'users', :action => 'my_account'
+  map.user_edit 'my-account/edit', :controller => 'users', :action => 'edit'
   
   map.with_options :controller => 'twitter' do |m|
     m.twitter 'twitter/create', :action => 'create'

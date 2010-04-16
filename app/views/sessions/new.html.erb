@@ -1,24 +1,3 @@
-<div class='grid_4 prefix_4'>
-  <div id="form-box">
-    <h1>Account Log In</h1>
+<h1>Login</h1>
 
-    <% form_tag session_path do -%>
-      <p class="input_p">
-        <%= label_tag 'email' %><br />
-        <%= text_field_tag 'email', @email %>
-      </p>
-
-      <p class="input_p">
-        <%= label_tag 'password' %><br/>
-        <%= password_field_tag 'password', nil %>
-      </p>
-
-      <p class="checkbox_p">
-        <%= check_box_tag 'remember_me', '1', @remember_me %>
-        <%= label_tag 'remember_me', 'Remember me' %>
-      </p>
-
-      <p><%= submit_tag 'Log in' %></p>
-    <% end -%>
-  </div> <!-- login-box -->
-</div> <!-- grid_4 -->
+<%= render :partial => 'shared/login_box' %>

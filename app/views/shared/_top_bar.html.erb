@@ -1,0 +1,12 @@
+<%- if logged_in? -%>
+  <p class="member-info">Welcome <%= current_user.name %></p>
+  <ul class="member-nav">
+    <li class="<%= controller_name == 'users' ? 'current' : '' %>"><%= link_to 'My Account', my_account_path %></li>
+    <li><%= link_to 'Logout', logout_path %></li>
+  </ul>
+<%- else -%>
+  <ul class="home-nav">
+    <li id="what">What is this?</li>
+    <li id="how">How does this work?</li>
+  </ul>
+<%- end -%>

@@ -1,7 +1,13 @@
-<h2>What Is This?</h2>
+<%- @homepage = true -%>
 
-<p>SelectiveBuzz allows you to push content from your Google Buzz account to Twitter and Facebook by using special tags.</p>
+<ul class="login-nav">
+  <li><%= link_to 'Login', login_path, :title => 'login' %></li>
+  <li><%= link_to 'Signup', signup_path, :title => 'signup' %></li>
+  <%= image_tag 'caret.png' %>
+</ul>
 
-<h2>How Does It Work?</h2>
+<%= render :partial => 'shared/login_box' %>
 
-<p>It's easy! After you sign up, you can enable Twitter and Facebook integration for your account. If you post content to your Google Buzz account with special tags (#fb for Facebook and #tweet for Twitter) SelectiveBuzz will push that content to your respective accounts.</p>
+<div id="signup-box" class="styled-form" style="display:none;">
+  <%= render :partial => 'shared/signup_box' %>
+</div><!-- signup_box -->

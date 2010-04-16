@@ -1,35 +1,238 @@
-html, body { height:100%; }
+@font-face {
+  font-family: 'Waukegan';
+  src: url('/WaukeganLDO.eot');
+  src: local('☺'), url('/WaukeganLDO.ttf') format('truetype');
+}
+
+html { background:#00a0c6 url('/images/bg-page.png') no-repeat 50% 0; height:100%; }
+body { background:url('/images/bg-top.png') repeat-x 0 0; height:100%; }
+
+h1 {
+  border-bottom:1px solid #00a0c6;
+  color:#00a0c6;
+  font:normal 28px/100% 'Waukegan', helvetica, arial, sans-serif;
+  margin:0 0 35px 0;
+  padding:0 0 5px 0;
+}
 
 label { font-size:14px; padding:0 0 0 5px; }
 
-#wrapper {
+#inner-wrapper, #home-wrapper {
   min-height:100%;
   height:auto !important;
   height:100%;
-  margin:0 auto -50px;
+  margin:0 auto -50px auto;
+  width:800px;
 }
+#home-wrapper { width:480px; }
 
-#header { padding:15px 0; }
-
-.nav { list-style-type:none; }
-.nav li {
+.home-nav { list-style-type:none; margin:0 0 75px 0; padding:0; text-align:center; }
+.home-nav li {
+  color:#358da2;
   display:inline;
-  margin:0 15px 0 0;
+  font-weight:bold;
+  line-height:36px;
+  margin:0 50px 0 0;
   padding:0;
+  text-shadow:0 1px #fff;
+}
+.home-nav li:hover { cursor:pointer; }
+
+.member-info {
+  color:#358da2;
+  float:left;
+  font-size:15px;
+  font-weight:bold;
+  line-height:36px;
+  margin:0 0 75px 0;
+  text-shadow:0 1px #fff;
 }
 
-#footer, .push { height:50px; }
+.member-nav {
+  overflow:hidden;
+  float:right;
+  line-height:36px;
+  list-style-type:none;
+}
+.member-nav li { display:inline; font-size:15px; font-weight:bold; text-shadow:0 1px #fff; }
+.member-nav li a, .member-nav li a:visited { color:#358da2; text-decoration:none; }
+.member-nav li.current a {
+  background-color:#71b1c0;
+  border-radius:5px;
+  color:#fff;
+  padding:5px 10px;
+  text-shadow:1px 1px #777;
+  -moz-border-radius:5px;
+  -webkit-border-radius:5px;
+}
+
+.logo { margin:0 0 40px 0; text-align:center; }
+
+#content {
+  background-color:#fff;
+  border-radius:40px;
+  margin:0 0 150px 0;
+  padding:15px 40px;
+  position:relative;
+  -moz-border-radius:40px;
+  -webkit-border-radius:40px;
+}
+#content .quote-point {
+  background:url('/images/quote-point.png') no-repeat 0 0;
+  display:block;
+  position:absolute; bottom:-62px; left:95px;
+  height:62px;
+  width:83px;
+}
+
+.login-nav {
+  border-bottom:1px solid #00a0c6;
+  list-style-type:none;
+  margin:0 0 35px 0;
+  padding:0 0 5px 0;
+  position:relative;
+}
+.login-nav li {
+  display:inline;
+  font:normal 28px/100% 'Waukegan', helvetica, arial, sans-serif;
+  margin:0;
+  padding:0 65px;
+}
+.login-nav li a, .login-nav li a:visited { color:#00a0c6; text-decoration:none; }
+.login-nav img { position:absolute; bottom:-15px; left:77px; }
+
+#home-footer, #inner-footer, .push { height:50px; }
+#home-footer { margin:0 auto; width:480px; }
+#inner-footer { margin:0 auto; width:800px; }
+
+.copyright {
+  color:#b1e5f0;
+  float:left;
+  font-size:12px;
+}
+.copyright a, .copyright a:visited { color:#fff; text-decoration:none; }
+
+.designer {
+  color:#b1e5f0;
+  float:right;
+  font-size:12px;
+  line-height:17px;
+}
+.designer img { vertical-align:middle; }
 
 #form-box {
   background-color:#EFEFEF;
   border:3px solid #999;
+  border-radius:6px;
   padding:15px 25px 0 25px;
   -webkit-border-radius:6px;
-  -moz-border-radius:8px;
-  border-radius:6px;
+  -moz-border-radius:6px;
 }
 
-.checkbox_p label { line-height:24px; }
+.styled-form label {
+  color:#8a9fa4;
+  display:block;
+  font:normal 22px/100% 'Waukegan', helvetica, arial, sans-serif;
+  margin:0 0 5px 0;
+}
+.styled-form .google-box label { display:inline; }
+.styled-form .google-box span { margin:5px 0 0 0; }
+.styled-form .styled_input {
+  background:url('/images/input-right.png') no-repeat 100% 0;
+  display:block;
+  height:45px;
+}
+.styled-form input[type="text"], .styled-form input[type="password"] {
+  background:transparent url('/images/input-left.png') no-repeat 0 0;
+  border:none;
+  color:#00a0c6;
+  font-size:20px;
+  font-weight:bold;
+  padding:11px;
+  margin:0;
+  width:378px;
+}
+.styled-form .password-box input[type="password"] { width:280px; }
+.styled-form .password-box { position:relative; }
+.styled-form .password-box input[type="image"] { position:absolute; bottom:0; right:0; }
+.styled-form .checkbox { padding:0 5px 0 0; text-align:right; }
+.styled-form .checkbox label {
+  color:#00a0c6;
+  display:inline;
+  font-family:helvetica, arial, sans-serif;
+  font-size:13px;
+}
+.styled-form .signup-btn { text-align:right; }
+
+.user-info {
+  border:1px solid #e9e9e9;
+  border-radius:6px;
+  float:left;
+  margin:0 20px 25px 0;
+  overflow:hidden;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+}
+.user-info p {
+  color:#999;
+  float:left;
+  line-height:30px;
+  margin:0;
+  padding:0 30px 0 0;
+}
+.user-info .label {
+  background:#eaeaea url('/images/bg-strong.png') repeat-x 0 0;
+  border-right:1px solid #e9e9e9;
+  float:left;
+  font-weight:bold;
+  margin:0 15px 0 0;
+  padding:0 10px;
+}
+
+.edit-account {
+  background-color:#71B1C0;
+  border-radius:6px;
+  float:left;
+  font-weight:bold;
+  text-shadow:1px 1px #777;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
+}
+.edit-account a { color:#fff; display:block; padding:5px 10px; text-decoration:none; }
+
+.media-box {
+  background:#d4f0f4 url('/images/bg-media.png') repeat-x 0 0;
+  border:1px solid #f1f1f1;
+  border-radius:8px;
+  color:#67959c;
+  font-size:13px;
+  height:66px;
+  margin:0 0 20px 0;
+  overflow:hidden;
+  padding:10px 0 0 10px;
+  text-shadow:0 1px #fff;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
+}
+.media-box .service-badge { float:left; margin:0 25px 0 0; }
+.media-box p { float:left; margin:0 20px 0 0; width:400px; }
+.media-box .account-btn { float:left; margin:9px 0 0 0; }
+
+#twitter-enabled {
+  background-color:#2ac2f4;
+  background-image:none;
+  border-color:#2cc3f6;
+  color:#fff;
+  text-shadow:0 -1px #2292b7;
+}
+
+#facebook-enabled {
+  background-color:#608bdb !important;
+  background-image:none;
+  border-color:#608bdb;
+  color:#fff;
+  text-shadow:0 -1px #4564a6;
+}
 
 .clear { clear:both; }
 

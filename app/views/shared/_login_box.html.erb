@@ -1,0 +1,19 @@
+<div id="login-box" class="styled-form">
+  <% form_tag session_path do -%>
+    <p
+      <%= label_tag 'email' %>
+      <span class="styled_input"><%= text_field_tag 'email', @email %></span>
+    </p>
+
+    <p class="password-box">
+      <%= label_tag 'password' %>
+      <span class="styled_input"><%= password_field_tag 'password', nil %></span>
+      <%= image_submit_tag 'btn-login.png' %>
+    </p>
+
+    <p class="checkbox">
+      <%= check_box_tag 'remember_me', '1', @remember_me %>
+      <%= label_tag 'remember_me', 'Remember me' %>
+    </p>
+  <% end -%>
+</div><!-- login_box -->

@@ -1,21 +1,41 @@
-<h1>Your Account</h1>
+<div class="user-info">
+  <p class="label">Email</p>
+  <p><%= @user.email %></p>
+</div>
 
-<p>
-  <strong>Name:</strong> <%= @user.name %><br />
-  <strong>Email:</strong> <%= @user.email %><br />
-  <strong>Google Username</strong>: <%= @user.google_username %>
-</p>
+<div class="user-info">
+  <p class="label">Google Username</p>
+  <p><%= @user.google_username %></p>
+</div>
+
+<p class="edit-account"><%= link_to 'Edit', user_edit_path %></p>
+
+<div class="clear"></div>
 
 <%- if @user.twitter_enabled -%>
-  <p>
-    <strong>Twitter Account:</strong> <%= @user.twitter_name %>
-  </p>
+  <div id="twitter-enabled" class="media-box">
+    <%= image_tag 'icon-twitter-active.png', :alt => 'Twitter', :class => 'service-badge' %>
+    <p>By connecting your SelectiveBuzz account to your Twitter account, you can push items posted in Google Buzz to Twitter by including the tag "#tweet" in your Buzz text.</p>
+    <%= image_tag 'btn-twitter-active.png', :alt => 'Account Connected', :class => 'account-btn' %>
+  </div><!-- twitter-box -->
 <%- else -%>
-  <p><%= link_to image_tag('twitter_connect.png', :alt => 'Link to your twitter account.'), twitter_path %></p>
+  <div class="media-box">
+    <%= image_tag 'icon-twitter-inactive.png', :alt => 'Twitter', :class => 'service-badge' %>
+    <p>By connecting your SelectiveBuzz account to your Twitter account, you can push items posted in Google Buzz to Twitter by including the tag "#tweet" in your Buzz text.</p>
+    <%= link_to image_tag('btn-twitter-inactive.png', :alt => 'Connect to Twitter', :class => 'account-btn'), twitter_path %>
+  </div><!-- twitter-box -->
 <%- end -%>
 
 <%- if @user.facebook_enabled -%>
-  <p><strong>Facebook Connect:</strong> enabled</p>
+  <div class="media-box" id="facebook-enabled">
+    <%= image_tag 'icon-facebook-active.png', :alt => 'Facebook', :class => 'service-badge' %>
+    <p>By connecting your SelectiveBuzz account to your Facebook account, you can push items posted in Google Buzz to Facebook by including the tag "fb" in your Buzz text.</p>
+    <%= image_tag 'btn-facebook-active.png', :alt => 'Account Connected', :class => 'account-btn' %>
+  </div><!-- facebook-enabled -->
 <%- else -%>
-  <p><%= link_to image_tag('facebook_connect.gif', :alt => 'Link to your facebook account.'), facebook_connect_path %></p>
+  <div class="media-box">
+    <%= image_tag 'icon-facebook-inactive.png', :alt => 'Facebook', :class => 'service-badge' %>
+    <p>By connecting your SelectiveBuzz account to your Facebook account, you can push items posted in Google Buzz to Facebook by including the tag "#fb" in your Buzz text.</p>
+    <%= link_to image_tag('btn-facebook-inactive.png', :alt => 'Connect to Facebook', :class => 'account-btn'), facebook_connect_path %>
+  </div><!-- twitter-box -->
 <%- end -%>

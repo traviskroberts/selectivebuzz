@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  
-  before_filter :login_required, :only => [:show, :my_account]
+  before_filter :login_required, :only => [:edit, :update, :show, :my_account]
 
   # render new.rhtml
   def new
     @user = User.new
+    render :layout => 'home'
   end
  
   def create
@@ -15,8 +15,24 @@ class UsersController < ApplicationController
       redirect_back_or_default('/')
       flash[:notice] = "Thanks for signing up!  We're sending you an email with your activation code."
     else
-      flash[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
-      render :action => 'new'
+      flash.now[:error]  = "We couldn't set up that account, sorry.  Please try again, or contact an admin (link is above)."
+      render :action => 'new', :layout => 'home'
+    end
+  end
+  
+  def edit
+    @user = current_user
+    render :layout => 'home'
+  end
+  
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      flash[:success] = 'Account updated.'
+      redirect_to my_account_path
+    else
+      flash.now[:error] = 'Could not update account.'
+      render :action => 'edit', :layout => 'home'
     end
   end
   
