@@ -10,7 +10,7 @@ set :application, "selectivebuzz"
 set :deploy_to, "/var/www/apps/#{application}"
 
 # Primary domain name of your application. Used as a default for all server roles.
-set :domain, "selectivebuzz.travisroberts.net"
+set :domain, "selectivebuzz.com"
 
 # Login user for ssh.
 set :user, "deploy"
